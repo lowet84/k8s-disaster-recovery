@@ -22,4 +22,4 @@ def setup_master():
         if role == 'storage':
             storages.append(hostname)
 
-    print("Fin!")
+    print(storages)
