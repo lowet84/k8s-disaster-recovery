@@ -2,15 +2,12 @@ import codecs
 import json
 import urllib.request
 
-def setup_master():
+def get_storage():
     nodes_json = urllib.request.urlopen("http://localhost:8080/api/v1/nodes")
     reader = codecs.getreader("utf-8")
     data = json.load(reader(nodes_json))
 
-    # with open('nodes.txt') as data_file:
-    #     data = json.load(data_file)
-
-    storages = []
+    storage = []
 
     for node in data['items']:
         hostname = node['metadata']['labels']['kubernetes.io/hostname']
@@ -20,6 +17,11 @@ def setup_master():
             role = None
 
         if role == 'storage':
-            storages.append(hostname)
+            storage.append(hostname)
 
-    print(storages)
+    return storage
+
+def setup_master():
+
+    storage = get_storage()
+    print(storage)
