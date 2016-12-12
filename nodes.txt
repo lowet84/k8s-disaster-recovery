@@ -757,7 +757,7 @@
           "beta.kubernetes.io/arch": "amd64",
           "beta.kubernetes.io/os": "linux",
           "kubernetes.io/hostname": "kubestorage1",
-          "lizardfs": "storage"
+          "role": "storage"
         },
         "annotations": {
           "scheduler.alpha.kubernetes.io/taints": "[{\"key\":\"dedicated\",\"value\":\"storage\",\"effect\":\"NoSchedule\"}]",
